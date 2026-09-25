@@ -66,36 +66,44 @@ def list_models():
     for m in r.json().get("models", []):
         n = m["name"].split("/")[-1]
         if "generateContent" not in m.get("supportedGenerationMethods", []): continue
-        if "flash" not in n or any(x in n for x in ("image", "tts", "live", "audio", "thinking", "8b", "vision", "robotics", "computer")): continue
+        if "flash" not in n or any(x in n for x in ("image", "tts", "live", "audio", "thinking", "8b", "vision", "robotics", "computer", "omni", "embed")): continue
         v = re.search(r"gemini-(\d+(?:\.\d+)?)", n)
         stable = not any(x in n for x in ("preview", "exp", "lite"))
         cands.append((stable, float(v.group(1)) if v else 0, n))
     if not cands: raise RuntimeError("No Gemini Flash model available for this API key")
     cands.sort(reverse=True)
-    names = [c[2] for c in cands][:6]
+    names = [c[2] for c in cands][:12]
     print("Gemini models to try:", names)
     _model_cache["l"] = names
     return names
 
 def gemini(prompt, grounded=False, json_mode=False):
+    """Patient caller: skips models that are gone or out of quota, and when every model is busy
+    (503/429) waits and tries the whole list again, for up to ~6 minutes."""
     if DRY: return MOCK.get("ground" if grounded else "json", ""), []
     body = {"contents": [{"parts": [{"text": prompt}]}]}
     if grounded: body["tools"] = [{"google_search": {}}]
     if json_mode: body["generationConfig"] = {"responseMimeType": "application/json", "temperature": 0.4}
-    last = ""
-    for model in list_models():                      # if one model is busy or missing, move to the next
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
-        for attempt in range(2):
-            r = requests.post(url, headers={"x-goog-api-key": GKEY, "Content-Type": "application/json"}, json=body, timeout=180)
-            if r.status_code in (429, 500, 503) and attempt == 0:
-                time.sleep(6); continue
-            break
-        if r.status_code == 200:
-            print("Gemini model used:", model); break
-        last = f"{model}: {r.status_code} {r.text[:200]}"
-        print("model failed, trying next ->", last)
+    dead, last, r = set(), "", None
+    for rnd in range(5):
+        for model in list_models():
+            if model in dead: continue
+            url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+            try:
+                r = requests.post(url, headers={"x-goog-api-key": GKEY, "Content-Type": "application/json"}, json=body, timeout=150)
+            except requests.RequestException as e:
+                last = f"{model}: {e}"; continue
+            if r.status_code == 200:
+                print("Gemini model used:", model); break
+            last = f"{model}: {r.status_code} {r.text[:160]}"
+            if r.status_code in (400, 403, 404): dead.add(model)      # not usable with this key: never retry
+            print("skip ->", last[:120].replace("\n", " "))
+        else:
+            wait = 20 * (rnd + 1)
+            print(f"all models busy; waiting {wait}s (round {rnd + 1}/5)"); time.sleep(wait); continue
+        break
     else:
-        raise RuntimeError("All Gemini models failed. Last: " + last)
+        raise RuntimeError("Gemini is overloaded or out of quota for every model. Last: " + last)
     cand = (r.json().get("candidates") or [{}])[0]
     text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", [])).strip()
     seen, sources = set(), []
