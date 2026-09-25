@@ -16,7 +16,7 @@ HERE = Path(__file__).parent
 STATE_FILE = HERE / "state.json"
 OUT = HERE / "out"; OUT.mkdir(exist_ok=True)
 DRY = os.getenv("DRY_RUN") == "1"
-MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+MODEL = os.getenv("GEMINI_MODEL", "").strip()   # leave empty: the agent picks a working Flash model itself
 GKEY = os.getenv("GEMINI_API_KEY", "").strip()
 TTOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 TCHAT = str(os.getenv("TELEGRAM_CHAT_ID", "")).strip()
@@ -54,12 +54,33 @@ def tg_updates(offset):
 
 
 # ---------------- gemini ----------------
+_model_cache = {}
+def pick_model():
+    """Ask the API which models this key can use and pick the newest stable Flash model."""
+    if MODEL: return MODEL
+    if "m" in _model_cache: return _model_cache["m"]
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"pageSize": 200},
+                     headers={"x-goog-api-key": GKEY}, timeout=30)
+    r.raise_for_status()
+    cands = []
+    for m in r.json().get("models", []):
+        n = m["name"].split("/")[-1]
+        if "generateContent" not in m.get("supportedGenerationMethods", []): continue
+        if "flash" not in n or any(x in n for x in ("lite", "image", "tts", "live", "audio", "thinking", "8b", "vision", "robotics", "computer")): continue
+        v = re.search(r"gemini-(\d+(?:\.\d+)?)", n)
+        cands.append((float(v.group(1)) if v else 0, not any(x in n for x in ("preview", "exp")), n))
+    if not cands: raise RuntimeError("No Gemini Flash model available for this API key")
+    cands.sort(reverse=True)
+    _model_cache["m"] = cands[0][2]
+    print("using Gemini model:", cands[0][2])
+    return cands[0][2]
+
 def gemini(prompt, grounded=False, json_mode=False):
     if DRY: return MOCK.get("ground" if grounded else "json", ""), []
     body = {"contents": [{"parts": [{"text": prompt}]}]}
     if grounded: body["tools"] = [{"google_search": {}}]
     if json_mode: body["generationConfig"] = {"responseMimeType": "application/json", "temperature": 0.4}
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{pick_model()}:generateContent"
     for attempt in range(4):
         r = requests.post(url, headers={"x-goog-api-key": GKEY, "Content-Type": "application/json"}, json=body, timeout=180)
         if r.status_code in (429, 500, 503):
@@ -111,9 +132,11 @@ def collect_signals():
     if YTKEY: jobs.append(("youtube", youtube, YT_QUERIES))
     for key, fn, qs in jobs:
         for q in qs:
-            try: out[key] += fn(q)
-            except Exception as e: print(f"signal {key}/{q} failed: {e}")
-            time.sleep(1)
+            for attempt in range(2):
+                try: out[key] += fn(q); break
+                except Exception as e:
+                    print(f"signal {key}/{q} failed: {e}"); time.sleep(4)
+            time.sleep(2)
         out[key] = list(dict.fromkeys(out[key]))
     return out
 
