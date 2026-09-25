@@ -17,10 +17,10 @@ STATE_FILE = HERE / "state.json"
 OUT = HERE / "out"; OUT.mkdir(exist_ok=True)
 DRY = os.getenv("DRY_RUN") == "1"
 MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
-GKEY = os.getenv("GEMINI_API_KEY", "")
-TTOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TCHAT = str(os.getenv("TELEGRAM_CHAT_ID", ""))
-YTKEY = os.getenv("YOUTUBE_API_KEY", "")
+GKEY = os.getenv("GEMINI_API_KEY", "").strip()
+TTOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+TCHAT = str(os.getenv("TELEGRAM_CHAT_ID", "")).strip()
+YTKEY = os.getenv("YOUTUBE_API_KEY", "").strip()
 UA = {"User-Agent": "lean-content-agent/1.0 (personal use)"}
 TODAY = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=5, minutes=30)))
 
