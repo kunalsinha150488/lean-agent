@@ -45,11 +45,15 @@ def tg(method, **kw):
         print(f"[DRY telegram.{method}]", {k: (v if k != "files" else "<file>") for k, v in kw.items()}); return {"result": []}
     files = kw.pop("files", None)
     r = requests.post(f"https://api.telegram.org/bot{TTOKEN}/{method}", data=kw, files=files, timeout=120)
+    if not r.ok:
+        print("TELEGRAM ERROR:", r.status_code, r.text)
     r.raise_for_status(); return r.json()
 
 def tg_updates(offset):
     if DRY: return []
     r = requests.get(f"https://api.telegram.org/bot{TTOKEN}/getUpdates", params={"offset": offset, "timeout": 0}, timeout=30)
+    if not r.ok:
+        print("TELEGRAM ERROR:", r.status_code, r.text)
     r.raise_for_status(); return r.json().get("result", [])
 
 
