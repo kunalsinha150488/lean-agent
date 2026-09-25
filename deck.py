@@ -9,9 +9,15 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.lib.fonts import addMapping
 
-FONTS = Path(__file__).parent / "fonts"
-pdfmetrics.registerFont(TTFont("LS", str(FONTS / "LiberationSans-Regular.ttf")))
-pdfmetrics.registerFont(TTFont("LS-B", str(FONTS / "LiberationSans-Bold.ttf")))
+def _font(name):
+    """Find the font in fonts/ or next to this file (works with either upload layout)."""
+    for d in (Path(__file__).parent / "fonts", Path(__file__).parent):
+        if (d / name).exists():
+            return str(d / name)
+    raise FileNotFoundError(name + " not found; upload the two LiberationSans .ttf files")
+
+pdfmetrics.registerFont(TTFont("LS", _font("LiberationSans-Regular.ttf")))
+pdfmetrics.registerFont(TTFont("LS-B", _font("LiberationSans-Bold.ttf")))
 for b, i, f in [(0, 0, "LS"), (1, 0, "LS-B"), (0, 1, "LS"), (1, 1, "LS-B")]:
     addMapping("LS", b, i, f)
 
