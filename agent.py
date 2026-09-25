@@ -55,10 +55,10 @@ def tg_updates(offset):
 
 # ---------------- gemini ----------------
 _model_cache = {}
-def pick_model():
-    """Ask the API which models this key can use and pick the newest stable Flash model."""
-    if MODEL: return MODEL
-    if "m" in _model_cache: return _model_cache["m"]
+def list_models():
+    """Flash models this API key can use, best first: stable before preview, then newest."""
+    if MODEL: return [MODEL]
+    if "l" in _model_cache: return _model_cache["l"]
     r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"pageSize": 200},
                      headers={"x-goog-api-key": GKEY}, timeout=30)
     r.raise_for_status()
@@ -66,28 +66,36 @@ def pick_model():
     for m in r.json().get("models", []):
         n = m["name"].split("/")[-1]
         if "generateContent" not in m.get("supportedGenerationMethods", []): continue
-        if "flash" not in n or any(x in n for x in ("lite", "image", "tts", "live", "audio", "thinking", "8b", "vision", "robotics", "computer")): continue
+        if "flash" not in n or any(x in n for x in ("image", "tts", "live", "audio", "thinking", "8b", "vision", "robotics", "computer")): continue
         v = re.search(r"gemini-(\d+(?:\.\d+)?)", n)
-        cands.append((float(v.group(1)) if v else 0, not any(x in n for x in ("preview", "exp")), n))
+        stable = not any(x in n for x in ("preview", "exp", "lite"))
+        cands.append((stable, float(v.group(1)) if v else 0, n))
     if not cands: raise RuntimeError("No Gemini Flash model available for this API key")
     cands.sort(reverse=True)
-    _model_cache["m"] = cands[0][2]
-    print("using Gemini model:", cands[0][2])
-    return cands[0][2]
+    names = [c[2] for c in cands][:6]
+    print("Gemini models to try:", names)
+    _model_cache["l"] = names
+    return names
 
 def gemini(prompt, grounded=False, json_mode=False):
     if DRY: return MOCK.get("ground" if grounded else "json", ""), []
     body = {"contents": [{"parts": [{"text": prompt}]}]}
     if grounded: body["tools"] = [{"google_search": {}}]
     if json_mode: body["generationConfig"] = {"responseMimeType": "application/json", "temperature": 0.4}
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/{pick_model()}:generateContent"
-    for attempt in range(4):
-        r = requests.post(url, headers={"x-goog-api-key": GKEY, "Content-Type": "application/json"}, json=body, timeout=180)
-        if r.status_code in (429, 500, 503):
-            time.sleep(8 * (attempt + 1)); continue
-        r.raise_for_status(); break
+    last = ""
+    for model in list_models():                      # if one model is busy or missing, move to the next
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
+        for attempt in range(2):
+            r = requests.post(url, headers={"x-goog-api-key": GKEY, "Content-Type": "application/json"}, json=body, timeout=180)
+            if r.status_code in (429, 500, 503) and attempt == 0:
+                time.sleep(6); continue
+            break
+        if r.status_code == 200:
+            print("Gemini model used:", model); break
+        last = f"{model}: {r.status_code} {r.text[:200]}"
+        print("model failed, trying next ->", last)
     else:
-        raise RuntimeError("Gemini kept failing: " + r.text[:300])
+        raise RuntimeError("All Gemini models failed. Last: " + last)
     cand = (r.json().get("candidates") or [{}])[0]
     text = "".join(p.get("text", "") for p in cand.get("content", {}).get("parts", [])).strip()
     seen, sources = set(), []
