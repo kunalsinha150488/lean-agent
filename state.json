@@ -1,37 +1,4 @@
 {
-  "pending": {
-    "topics": [
-      {
-        "title": "Godrej and CII Launch Udaan for MSMEs",
-        "industry": "Manufacturing",
-        "why": "Strengthening supplier capabilities and lean operations across MSME networks is crucial for building resilient supply chains.",
-        "evidence": "Covered across 3 news sources including ET Manufacturing and KNN India."
-      },
-      {
-        "title": "Suzuki Targets 24 Month Vehicle Development Cycle",
-        "industry": "Automotive",
-        "why": "Lean engineering and shortened development cycles drastically reduce time to market while preserving manufacturing quality.",
-        "evidence": "Reported across multiple news outlets including ET Auto and Investing.com."
-      },
-      {
-        "title": "Tata Chemicals Wins CII Six Sigma Awards",
-        "industry": "Chemicals",
-        "why": "Demonstrates the enduring power of structured Six Sigma methodologies in driving continuous process manufacturing excellence.",
-        "evidence": "Featured in Passionate In Marketing and Chemical Industry Digest."
-      },
-      {
-        "title": "Pharma Industry Advances Automation and Smart Manufacturing",
-        "industry": "Pharma",
-        "why": "Pharma manufacturers prioritize smart software and automation conventions to optimize compliance and operational throughput.",
-        "evidence": "Highlighted by 8th Annual Pharma Manufacturing Convention and Nasscom."
-      },
-      {
-        "title": "Marathon Focuses on Maintenance Before AI",
-        "industry": "Power & Energy",
-        "why": "Establishing foundational operational maintenance processes before layering advanced AI is vital for heavy industry reliability.",
-        "evidence": "Featured in Oil & Gas IQ article."
-      }
-    ],
-    "sent_at": 1790403092.3722734
-  }
+  "pending": null,
+  "offset": 327305654
 }
