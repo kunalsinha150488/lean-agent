@@ -4,34 +4,34 @@
       {
         "title": "Godrej and CII Launch Udaan for MSMEs",
         "industry": "Manufacturing",
-        "why": "Empowering MSME suppliers through lean capabilities is critical for building resilient, high-performing manufacturing supply chains.",
-        "evidence": "Three matching news headlines"
+        "why": "Strengthening supplier capabilities and lean operations across MSME networks is crucial for building resilient supply chains.",
+        "evidence": "Covered across 3 news sources including ET Manufacturing and KNN India."
       },
       {
-        "title": "Suzuki Targets 24-Month Vehicle Development Cycle",
+        "title": "Suzuki Targets 24 Month Vehicle Development Cycle",
         "industry": "Automotive",
-        "why": "Slashing development time to 24 months showcases how lean product development drives speed-to-market and competitive advantage.",
-        "evidence": "Two matching news headlines"
+        "why": "Lean engineering and shortened development cycles drastically reduce time to market while preserving manufacturing quality.",
+        "evidence": "Reported across multiple news outlets including ET Auto and Investing.com."
       },
       {
-        "title": "Tata Chemicals Wins National Six Sigma Awards",
-        "industry": "Manufacturing",
-        "why": "Winning double platinum at the CII competition highlights the enduring power of structured Six Sigma methodologies in process industries.",
-        "evidence": "Two matching news headlines"
+        "title": "Tata Chemicals Wins CII Six Sigma Awards",
+        "industry": "Chemicals",
+        "why": "Demonstrates the enduring power of structured Six Sigma methodologies in driving continuous process manufacturing excellence.",
+        "evidence": "Featured in Passionate In Marketing and Chemical Industry Digest."
       },
       {
-        "title": "Automation and Software Drive Pharma Manufacturing",
+        "title": "Pharma Industry Advances Automation and Smart Manufacturing",
         "industry": "Pharma",
-        "why": "Modern pharma operations rely heavily on automation and specialized software to ensure quality compliance and production efficiency.",
-        "evidence": "Multiple industry news headlines"
+        "why": "Pharma manufacturers prioritize smart software and automation conventions to optimize compliance and operational throughput.",
+        "evidence": "Highlighted by 8th Annual Pharma Manufacturing Convention and Nasscom."
       },
       {
-        "title": "Digitizing National Grid Playbooks for Excellence",
-        "industry": "Power",
-        "why": "Standardizing and digitizing operational playbooks is crucial for maintaining reliability and safety in critical power infrastructure.",
-        "evidence": "News headline from Construction Digital"
+        "title": "Marathon Focuses on Maintenance Before AI",
+        "industry": "Power & Energy",
+        "why": "Establishing foundational operational maintenance processes before layering advanced AI is vital for heavy industry reliability.",
+        "evidence": "Featured in Oil & Gas IQ article."
       }
     ],
-    "sent_at": 1790400968.461468
+    "sent_at": 1790403092.3722734
   }
 }
