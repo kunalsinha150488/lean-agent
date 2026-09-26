@@ -45,15 +45,11 @@ def tg(method, **kw):
         print(f"[DRY telegram.{method}]", {k: (v if k != "files" else "<file>") for k, v in kw.items()}); return {"result": []}
     files = kw.pop("files", None)
     r = requests.post(f"https://api.telegram.org/bot{TTOKEN}/{method}", data=kw, files=files, timeout=120)
-    if not r.ok:
-        print("TELEGRAM ERROR:", r.status_code, r.text)
     r.raise_for_status(); return r.json()
 
 def tg_updates(offset):
     if DRY: return []
     r = requests.get(f"https://api.telegram.org/bot{TTOKEN}/getUpdates", params={"offset": offset, "timeout": 0}, timeout=30)
-    if not r.ok:
-        print("TELEGRAM ERROR:", r.status_code, r.text)
     r.raise_for_status(); return r.json().get("result", [])
 
 
@@ -184,11 +180,28 @@ def cmd_topics():
     msg += 'Reply with TWO numbers, e.g. "1 4".\nFirst = Tuesday deck, second = Thursday deck.'
     tg("sendMessage", chat_id=TCHAT, text=msg)
 
-def make_deck(topic, slot):
-    research, sources = gemini(
+def _grounded_research(topic):
+    return gemini(
         f"Research this topic for a LinkedIn knowledge-sharing deck by a lean / operational-excellence professional. Use Google Search. Topic: {topic['title']} (industry focus: {topic['industry']}). Today is {TODAY:%d %b %Y}. "
         "Report: why it matters now; the core concept and lean/OpEx tools involved; what is happening in automotive, in pharma, in general manufacturing and in power/energy; 6 to 8 concrete facts or figures with source names, flagging vendor claims; practical steps; risks and caveats. Report only what sources support; do not invent numbers.",
         grounded=True)
+
+
+def make_deck(topic, slot):
+    try:
+        research, sources = _grounded_research(topic)
+    except RuntimeError as e:
+        # Google Search grounding can hit its own free-tier quota. Fall back to free Google News headlines.
+        print("grounded research failed, using Google News headlines instead:", str(e)[:120])
+        heads = []
+        for q in (topic["title"], topic["title"] + " " + topic.get("industry", "")):
+            try: heads += google_news(q)
+            except Exception as ex: print("news fallback failed:", ex)
+        heads = list(dict.fromkeys(heads))[:14]
+        research = ("Headlines from the last 7 days (no full articles available). Use only what these headlines support; "
+                    "state clearly where detail is limited.\n" + "\n".join("- " + h for h in heads)) if heads else \
+                   "No live sources could be fetched. Write cautious, general lean/OpEx guidance for the topic and avoid any statistics."
+        sources = [{"title": h} for h in heads[:8]]
     txt, _ = gemini(
         'Create a LinkedIn knowledge-sharing deck for Kunal Sinha, a lean and operational-excellence professional. Use ONLY the research below. Return JSON exactly like {"topic":string (max 9 words),"subtitle":string (one line),"post_title":string (LinkedIn headline, max 12 words, no emojis),'
         '"caption":string (95 to 105 words, first person, one hook line, plain text, ends with 3 to 4 hashtags),"slides":[{"kicker":string,"title":string (max 8 words),"bullets":[3 to 5 strings, each max 26 words],"note":string (optional one-line caveat)}]}. '
