@@ -1,4 +1,38 @@
 {
-  "pending": null,
+  "pending": {
+    "topics": [
+      {
+        "title": "Godrej and CII Launch Udaan MSME Program",
+        "industry": "Manufacturing",
+        "why": "Strengthening tier-2 supplier capabilities and lean practices is essential for resilient, scalable supply chain ecosystems.",
+        "evidence": "Covered across three news outlets including ET Manufacturing and KNN India"
+      },
+      {
+        "title": "GLP-1 Demand Pressures Pharmaceutical Manufacturing Quality",
+        "industry": "Pharma",
+        "why": "Rapid capacity expansion in biopharma often exposes critical operational vulnerabilities, underscoring the need for strict quality controls.",
+        "evidence": "Reported in Reuters and Streamline Feed headlines"
+      },
+      {
+        "title": "Tata Chemicals Mithapur Wins Six Sigma Awards",
+        "industry": "Manufacturing",
+        "why": "Demonstrating how sustained Lean Six Sigma rigor delivers measurable business impact and competitive operational benchmarks.",
+        "evidence": "Reported across SMEStreet and Chemindigest news articles"
+      },
+      {
+        "title": "Suzuki Slashes Vehicle Development to 24 Months",
+        "industry": "Automotive",
+        "why": "Compressing design cycles demands robust concurrent engineering, waste elimination, and disciplined agile lean development practices.",
+        "evidence": "Featured in Investing.com automotive headlines"
+      },
+      {
+        "title": "Marathon Emphasizes Maintenance Fundamentals Before Industrial AI",
+        "industry": "Power",
+        "why": "OpEx leaders must stabilize core maintenance processes before layering advanced predictive algorithms and digital transformation tools.",
+        "evidence": "Featured in Oil & Gas IQ operational coverage"
+      }
+    ],
+    "sent_at": 1790531734.853457
+  },
   "offset": 327305654
 }
