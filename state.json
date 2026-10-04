@@ -2,37 +2,37 @@
   "pending": {
     "topics": [
       {
-        "title": "Godrej and CII Launch Udaan MSME Program",
-        "industry": "Manufacturing",
-        "why": "Strengthening tier-2 supplier capabilities and lean practices is essential for resilient, scalable supply chain ecosystems.",
-        "evidence": "Covered across three news outlets including ET Manufacturing and KNN India"
-      },
-      {
-        "title": "GLP-1 Demand Pressures Pharmaceutical Manufacturing Quality",
-        "industry": "Pharma",
-        "why": "Rapid capacity expansion in biopharma often exposes critical operational vulnerabilities, underscoring the need for strict quality controls.",
-        "evidence": "Reported in Reuters and Streamline Feed headlines"
-      },
-      {
-        "title": "Tata Chemicals Mithapur Wins Six Sigma Awards",
-        "industry": "Manufacturing",
-        "why": "Demonstrating how sustained Lean Six Sigma rigor delivers measurable business impact and competitive operational benchmarks.",
-        "evidence": "Reported across SMEStreet and Chemindigest news articles"
-      },
-      {
-        "title": "Suzuki Slashes Vehicle Development to 24 Months",
-        "industry": "Automotive",
-        "why": "Compressing design cycles demands robust concurrent engineering, waste elimination, and disciplined agile lean development practices.",
-        "evidence": "Featured in Investing.com automotive headlines"
-      },
-      {
-        "title": "Marathon Emphasizes Maintenance Fundamentals Before Industrial AI",
+        "title": "Azad Engineering Opens Lean Facilities for GE Vernova",
         "industry": "Power",
-        "why": "OpEx leaders must stabilize core maintenance processes before layering advanced predictive algorithms and digital transformation tools.",
-        "evidence": "Featured in Oil & Gas IQ operational coverage"
+        "why": "Demonstrates how lean facility design directly scales capacity and drives massive enterprise value in power equipment manufacturing.",
+        "evidence": "6 news headlines reporting on Hyderabad facility openings and stock surge"
+      },
+      {
+        "title": "Toyota and Made Smarter Transform Manufacturing Operations",
+        "industry": "Automotive",
+        "why": "Combines the Toyota Production System heritage with modern smart manufacturing initiatives to accelerate SME digital transformation.",
+        "evidence": "Reported by PES Media on Toyota and Made Smarter UK partnership"
+      },
+      {
+        "title": "Automated Material Handling Redefines Pharmaceutical Manufacturing",
+        "industry": "Pharma",
+        "why": "Highlights how automation and material handling eliminate workflow bottlenecks and boost regulatory compliance across pharma plants.",
+        "evidence": "Featured in Jacobs report and Hyderabad Pharma Manufacturing Excellence Awards news"
+      },
+      {
+        "title": "DCM Shriram Jhagadia Joins WEF Lighthouse Network",
+        "industry": "Manufacturing",
+        "why": "Proves how digital OpEx and Fourth Industrial Revolution technologies drive benchmark productivity gains in chemical manufacturing.",
+        "evidence": "AgroSpectrum India reporting on WEF Global Lighthouse Network induction"
+      },
+      {
+        "title": "ConocoPhillips Drives OpEx in LNG Facility Maintenance",
+        "industry": "Power",
+        "why": "Shows the critical role of lean precision and safety protocols in high-risk energy maintenance turnarounds.",
+        "evidence": "ConocoPhillips report on Australia Pacific LNG Train 2 maintenance"
       }
     ],
-    "sent_at": 1790531734.853457
+    "sent_at": 1791136066.7823071
   },
   "offset": 327305655
 }
