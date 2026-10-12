@@ -1,38 +1,4 @@
 {
-  "pending": {
-    "topics": [
-      {
-        "title": "Vertiv Appoints Global Operational Excellence Leader",
-        "industry": "Manufacturing",
-        "why": "Leadership appointments highlight how mission-critical operational excellence has become for scaling global critical digital infrastructure.",
-        "evidence": "Reported across seven separate news headlines"
-      },
-      {
-        "title": "Toyota Issues Urgent Warning on Industry Survival",
-        "industry": "Automotive",
-        "why": "Even the pioneer of lean acknowledges that traditional methods must evolve rapidly to survive modern industry disruption.",
-        "evidence": "News report from InsideEVs quoting Toyota leadership"
-      },
-      {
-        "title": "BMW Recovers Margins with Factory Floor AI",
-        "industry": "Automotive",
-        "why": "Integrating artificial intelligence directly into plant operations showcases the digital evolution of lean waste reduction.",
-        "evidence": "Automotive Manufacturing Solutions news report on BMW"
-      },
-      {
-        "title": "NTPC Plant Begins Business Excellence Assessment",
-        "industry": "Power",
-        "why": "A major power generator benchmarks operational maturity using formal business excellence frameworks to drive utility reliability.",
-        "evidence": "PSU Watch headline on NTPC Vindhyachal assessment"
-      },
-      {
-        "title": "Automated Material Handling Reshapes Pharma Manufacturing",
-        "industry": "Pharma",
-        "why": "Automated systems eliminate material transfer waste and human error in heavily regulated life sciences production.",
-        "evidence": "Jacobs news feature on pharmaceutical manufacturing automation"
-      }
-    ],
-    "sent_at": 1791743040.7332256
-  },
-  "offset": 327305656
+  "pending": null,
+  "offset": 327305657
 }
