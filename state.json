@@ -1,4 +1,38 @@
 {
-  "pending": null,
+  "pending": {
+    "topics": [
+      {
+        "title": "Lean Six Sigma Framework for Research Statements",
+        "industry": "Manufacturing",
+        "why": "Standardizing problem definition using Lean Six Sigma bridges academic rigor with structured operational root-cause analysis.",
+        "evidence": "Repeated headlines across Yahoo Finance and PR Newswire"
+      },
+      {
+        "title": "Process Excellence as AI Competitive Advantage",
+        "industry": "Manufacturing",
+        "why": "AI deployments fail without streamlined workflows; process excellence establishes the required baseline for sustainable digital transformation.",
+        "evidence": "Headline in CIO"
+      },
+      {
+        "title": "EV Demand Pressures Automotive Supply Chains",
+        "industry": "Automotive",
+        "why": "Surging EV market pull strains factory capacity, requiring strict takt time balancing and bottleneck elimination across tiers.",
+        "evidence": "Headline in The Financial Express"
+      },
+      {
+        "title": "Automating Vaccine and Drug Manufacturing",
+        "industry": "Pharma",
+        "why": "Partnerships combining biopharma and IT automation drive cycle time reduction, compliance stability, and batch yield improvements.",
+        "evidence": "Headline in Korea Biomedical Review"
+      },
+      {
+        "title": "Power Distribution Quality and Operational Excellence",
+        "industry": "Power",
+        "why": "Utility providers winning multiple quality awards demonstrate how continuous improvement directly enhances grid reliability and service delivery.",
+        "evidence": "Headline in The Times of India"
+      }
+    ],
+    "sent_at": 1792342029.1632743
+  },
   "offset": 327305657
 }
