@@ -2,37 +2,37 @@
   "pending": {
     "topics": [
       {
-        "title": "Lean Six Sigma Framework for Research Statements",
-        "industry": "Manufacturing",
-        "why": "Standardizing problem definition using Lean Six Sigma bridges academic rigor with structured operational root-cause analysis.",
-        "evidence": "Repeated headlines across Yahoo Finance and PR Newswire"
-      },
-      {
-        "title": "Process Excellence as AI Competitive Advantage",
-        "industry": "Manufacturing",
-        "why": "AI deployments fail without streamlined workflows; process excellence establishes the required baseline for sustainable digital transformation.",
-        "evidence": "Headline in CIO"
-      },
-      {
-        "title": "EV Demand Pressures Automotive Supply Chains",
+        "title": "Toyota and the EV Survival Crisis",
         "industry": "Automotive",
-        "why": "Surging EV market pull strains factory capacity, requiring strict takt time balancing and bottleneck elimination across tiers.",
-        "evidence": "Headline in The Financial Express"
+        "why": "Shows how traditional automakers must adapt lean operations amid aggressive Chinese EV competition and regulatory shifts.",
+        "evidence": "Headlines in InsideEVs, Manufacturing Digital, and Automotive News."
       },
       {
-        "title": "Automating Vaccine and Drug Manufacturing",
-        "industry": "Pharma",
-        "why": "Partnerships combining biopharma and IT automation drive cycle time reduction, compliance stability, and batch yield improvements.",
-        "evidence": "Headline in Korea Biomedical Review"
+        "title": "AI and Discipline in Lean Six Sigma",
+        "industry": "Manufacturing",
+        "why": "Highlights that implementing AI in processes requires foundational operational discipline to drive real efficiency.",
+        "evidence": "Article by National Association of Wholesaler-Distributors and Emerj AI."
       },
       {
-        "title": "Power Distribution Quality and Operational Excellence",
+        "title": "Digital Transformation in Nuclear Power Operations",
         "industry": "Power",
-        "why": "Utility providers winning multiple quality awards demonstrate how continuous improvement directly enhances grid reliability and service delivery.",
-        "evidence": "Headline in The Times of India"
+        "why": "Illustrates how digital OpEx drives reliability and coordination in modern nuclear and multi-energy infrastructure projects.",
+        "evidence": "News coverage from SourceSecurity, TradingView, and POWER Magazine."
+      },
+      {
+        "title": "Automated Material Handling in Pharma Manufacturing",
+        "industry": "Pharma",
+        "why": "Explores how automation and data quality protection are transforming speed and compliance in pharmaceutical supply chains.",
+        "evidence": "Headlines from Jacobs, Manufacturing Chemist, and EY."
+      },
+      {
+        "title": "Frontline Leadership in Assembly Line Lean Success",
+        "industry": "Manufacturing",
+        "why": "Emphasizes that lean manufacturing fails without strong shop-floor leadership to sustain process improvements.",
+        "evidence": "Assembly Magazine podcast headline and Reddit lean posts."
       }
     ],
-    "sent_at": 1792342029.1632743
+    "sent_at": 1792948351.2221503
   },
   "offset": 327305657
 }
