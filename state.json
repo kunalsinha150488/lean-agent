@@ -1,38 +1,4 @@
 {
-  "pending": {
-    "topics": [
-      {
-        "title": "Toyota and the EV Survival Crisis",
-        "industry": "Automotive",
-        "why": "Shows how traditional automakers must adapt lean operations amid aggressive Chinese EV competition and regulatory shifts.",
-        "evidence": "Headlines in InsideEVs, Manufacturing Digital, and Automotive News."
-      },
-      {
-        "title": "AI and Discipline in Lean Six Sigma",
-        "industry": "Manufacturing",
-        "why": "Highlights that implementing AI in processes requires foundational operational discipline to drive real efficiency.",
-        "evidence": "Article by National Association of Wholesaler-Distributors and Emerj AI."
-      },
-      {
-        "title": "Digital Transformation in Nuclear Power Operations",
-        "industry": "Power",
-        "why": "Illustrates how digital OpEx drives reliability and coordination in modern nuclear and multi-energy infrastructure projects.",
-        "evidence": "News coverage from SourceSecurity, TradingView, and POWER Magazine."
-      },
-      {
-        "title": "Automated Material Handling in Pharma Manufacturing",
-        "industry": "Pharma",
-        "why": "Explores how automation and data quality protection are transforming speed and compliance in pharmaceutical supply chains.",
-        "evidence": "Headlines from Jacobs, Manufacturing Chemist, and EY."
-      },
-      {
-        "title": "Frontline Leadership in Assembly Line Lean Success",
-        "industry": "Manufacturing",
-        "why": "Emphasizes that lean manufacturing fails without strong shop-floor leadership to sustain process improvements.",
-        "evidence": "Assembly Magazine podcast headline and Reddit lean posts."
-      }
-    ],
-    "sent_at": 1792948351.2221503
-  },
-  "offset": 327305657
+  "pending": null,
+  "offset": 327305658
 }
