@@ -1,4 +1,38 @@
 {
-  "pending": null,
+  "pending": {
+    "topics": [
+      {
+        "title": "Automotive Lean Pressures and Global EV Competition",
+        "industry": "Automotive",
+        "why": "Toyota and Chinese EV makers face severe market pressures, forcing a renewed focus on lean efficiency and global expansion.",
+        "evidence": "Featured in Nikkei Asia and InsideEVs headlines."
+      },
+      {
+        "title": "AI-Driven Operational Excellence in Power Systems",
+        "industry": "Power",
+        "why": "Hitachi Energy expands collaboration with Celonis to leverage AI and accelerate operational excellence across power infrastructure.",
+        "evidence": "Hitachi Energy press release headline."
+      },
+      {
+        "title": "Industrial Operations Framework for Global Manufacturing",
+        "industry": "Manufacturing",
+        "why": "MahaVastu introduces a new framework aiming to transform global manufacturing operations and drive corporate excellence.",
+        "evidence": "Repeated coverage across Devdiscourse and ANI News headlines."
+      },
+      {
+        "title": "Kaizen Waste Reduction in Pharmacy Operations",
+        "industry": "Pharma",
+        "why": "Kaizen Institute applies lean principles to cut waiting time and eliminate process waste across healthcare pharmacy services.",
+        "evidence": "Medium headline on Kaizen Institute Kaduna PHC operations."
+      },
+      {
+        "title": "Lean Manufacturing Drives Backlog Growth in Energy",
+        "industry": "Power",
+        "why": "GE Vernova applies lean manufacturing principles to effectively support Q3 2026 backlog growth and operational execution.",
+        "evidence": "Seeking Alpha report headline on GE Vernova Q3 preview."
+      }
+    ],
+    "sent_at": 1793558157.8923254
+  },
   "offset": 327305658
 }
