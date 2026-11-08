@@ -2,37 +2,37 @@
   "pending": {
     "topics": [
       {
-        "title": "Automotive Lean Pressures and Global EV Competition",
+        "title": "Ford $2 Billion Assembly Overhaul",
         "industry": "Automotive",
-        "why": "Toyota and Chinese EV makers face severe market pressures, forcing a renewed focus on lean efficiency and global expansion.",
-        "evidence": "Featured in Nikkei Asia and InsideEVs headlines."
+        "why": "Automakers lean into cost discipline and major factory overhauls to modernize assembly lines amid flat overall production.",
+        "evidence": "Assembly Magazine and MarketScale news reports"
       },
       {
-        "title": "AI-Driven Operational Excellence in Power Systems",
-        "industry": "Power",
-        "why": "Hitachi Energy expands collaboration with Celonis to leverage AI and accelerate operational excellence across power infrastructure.",
-        "evidence": "Hitachi Energy press release headline."
+        "title": "Onshoring Pharma Manufacturing via CDMO Partnerships",
+        "industry": "Pharmaceuticals",
+        "why": "CDMOs and OEMs collaborate to onshore pharmaceutical manufacturing, building supply chain resilience through shared equipment infrastructure.",
+        "evidence": "PharmTech.com news report"
       },
       {
-        "title": "Industrial Operations Framework for Global Manufacturing",
+        "title": "AI Agents Linking Design to Operations",
         "industry": "Manufacturing",
-        "why": "MahaVastu introduces a new framework aiming to transform global manufacturing operations and drive corporate excellence.",
-        "evidence": "Repeated coverage across Devdiscourse and ANI News headlines."
+        "why": "Manufacturers adopt AI agents and process mining software to connect design workflows directly to shop floors.",
+        "evidence": "Manufacturing Digital and Consulting.us reports"
       },
       {
-        "title": "Kaizen Waste Reduction in Pharmacy Operations",
-        "industry": "Pharma",
-        "why": "Kaizen Institute applies lean principles to cut waiting time and eliminate process waste across healthcare pharmacy services.",
-        "evidence": "Medium headline on Kaizen Institute Kaduna PHC operations."
+        "title": "Intelligent Manufacturing for Solar Energy Storage",
+        "industry": "Power & Energy",
+        "why": "Energy firms unveil intelligent manufacturing bases and automation to accelerate solar-storage integration and operational readiness.",
+        "evidence": "Global Times and Energy Connects reports"
       },
       {
-        "title": "Lean Manufacturing Drives Backlog Growth in Energy",
-        "industry": "Power",
-        "why": "GE Vernova applies lean manufacturing principles to effectively support Q3 2026 backlog growth and operational execution.",
-        "evidence": "Seeking Alpha report headline on GE Vernova Q3 preview."
+        "title": "EV Production Lines Hitting Maximum Capacity",
+        "industry": "Automotive",
+        "why": "Surging EV demand forces major automakers to operate at maximum production capacity, testing throughput and operational efficiency.",
+        "evidence": "Team-BHP news report"
       }
     ],
-    "sent_at": 1793558157.8923254
+    "sent_at": 1794162747.714489
   },
   "offset": 327305658
 }
